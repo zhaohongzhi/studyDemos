@@ -1,6 +1,4 @@
-package com.study.muilthread;
-
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package com.study.muilthread.thread_basic;
 
 /**
  * Created by thinkpad on 2020/6/17.

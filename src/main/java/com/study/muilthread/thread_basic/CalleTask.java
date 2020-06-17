@@ -1,4 +1,4 @@
-package com.study.muilthread;
+package com.study.muilthread.thread_basic;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
