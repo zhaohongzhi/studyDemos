@@ -1,6 +1,4 @@
-package com.study.muilthread.thead_method;
-
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package com.study.muilthread.chapter01.thead_method;
 
 /**
  * Created by thinkpad on 2020/6/17.

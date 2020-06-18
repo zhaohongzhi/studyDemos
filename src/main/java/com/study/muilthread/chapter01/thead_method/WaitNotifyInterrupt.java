@@ -1,6 +1,4 @@
-package com.study.muilthread.thead_method;
-
-import javax.print.attribute.SetOfIntegerSyntax;
+package com.study.muilthread.chapter01.thead_method;
 
 /**
  * Created by thinkpad on 2020/6/17.
