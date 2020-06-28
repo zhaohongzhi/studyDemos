@@ -1,4 +1,4 @@
-package com.study.muilthread.chapter01.thread_basic;
+package com.study.muilthread.thread_basic;
 
 /**
  * Created by thinkpad on 2020/6/17.
