@@ -1,0 +1,50 @@
+server:
+  port: 8090
+  max-http-header-size: 102400
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8 #最大连接数
+        max-idle: 8 #最大空闲连接
+        min-idle: 0 #最小空闲连接
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: zhaohongzhi
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: HikariCp
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  thymeleaf:
+    cache: false #关闭缓存否则没法看到实时页面
+    encoding: utf-8
+    mode: HTML5
+    prefix: classpath:/resources/ #默认可以不用配置
+    suffix: .html #默认可以不用配置
+    servlet:
+      content-type: text/html
+mybatis:
+  mapperLocations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+
+
+
+api:
+  boot:
+    swagger:
+      enable: true
+      version: 1.0
+      license: ApiBoot
+      license-url: http://apiboot.minbox.io/zh-cn/
+      contact:
+        name: zhaohongzhi
+      description: 学习demo
