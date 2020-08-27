@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @Discribtion 描述
  */
 @Slf4j
-@Component
+//@Component
 public class RedisKeyExpireListener extends KeyExpirationEventMessageListener {
     public RedisKeyExpireListener(RedisMessageListenerContainer listenerContainer) {
         super(listenerContainer);

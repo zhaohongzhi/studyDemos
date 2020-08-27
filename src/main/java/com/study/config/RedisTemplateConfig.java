@@ -19,6 +19,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
@@ -93,10 +94,12 @@ public class RedisTemplateConfig {
     @Bean
     RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-//        监听所有的库
+        //监听所有的库
         container.setConnectionFactory(connectionFactory);
         //下面这种方式是灵活配置，针对每个库(0-14)的失效key做处理
-        container.addMessageListener(new RedisExpiredListener(), new PatternTopic("__keyevent@10__:expired"));
+        //container.addMessageListener(new RedisExpiredListener(), new PatternTopic("__keyevent@5__:expired"));
+        //该模式对应Redis监听指令   psubscribe __keyspace@10__:TASKKEY_* expire
+        container.addMessageListener(new RedisExpiredListener(),new PatternTopic("__keyspace@10__:TASKKEY_*"));
         return container;
     }
 

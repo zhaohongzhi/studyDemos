@@ -1,6 +1,5 @@
 package com.study.config;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @Date 2020-08-22
  * @Discribtion 描述
  */
-@Component
 public class RedisExpiredListener implements MessageListener {
 
     /**
@@ -20,7 +18,12 @@ public class RedisExpiredListener implements MessageListener {
      */
     @Override
     public void onMessage(Message message, byte[] bytes) {
-        System.out.println("==RedisExpiredListener===channel==="+new String(message.getChannel()));
-        System.out.println("===RedisExpiredListener==body==="+new String (message.getBody()));
+        byte[] body = message.getBody();// 建议使用: valueSerializer
+        byte[] channel = message.getChannel();
+        System.out.print("=====ExpiredListener=====onMessage >> " );
+        System.out.println(String.format("channel: %s, body: %s, bytes: %s"
+                ,new String(channel), new String(body), new String(bytes)));
     }
+
+
 }
